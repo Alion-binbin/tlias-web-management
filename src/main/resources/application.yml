@@ -1,0 +1,28 @@
+#配置数据库连接信息
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.100.128:3306/tlias
+    username: root
+    password: 1234
+  servlet:
+    multipart:
+      max-file-size: 10MB #单个文件最大大小限制10MB
+      max-request-size: 100MB #单个请求最大大小限制100MB
+
+#配置mybatis的日志输出到控制台
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    #配置mybatis的驼峰命名的映射开关
+    map-underscore-to-camel-case: true
+#查看事务管理的日志
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
+
+#阿里云oss配置
+aliyun:
+  oss:
+    endpoint: https://oss-cn-beijing.aliyuncs.com
+    bucketName: java422-web-ai
